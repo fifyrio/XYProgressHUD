@@ -2,6 +2,7 @@
 
 ## 简介
 A clean and multithreading progress HUD for your iOS
+![Demo Overview](https://github.com/fifyrio/XYProgressHUD/blob/master/Screenshots/screenshots.gif)
 
 ## 如何使用
 
