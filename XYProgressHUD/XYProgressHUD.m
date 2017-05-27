@@ -57,7 +57,6 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
 + (XYProgressHUD*)sharedView {
     static dispatch_once_t once;    
     static XYProgressHUD *sharedView;
-
     dispatch_once(&once, ^{ sharedView = [[self alloc] initWithFrame:[[[UIApplication sharedApplication] delegate] window].bounds]; });
 
     return sharedView;
@@ -75,7 +74,7 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
     return stackHUDs;
 }
 
-#pragma mark - Not singleton
+#pragma mark - Init/Getter (not singleton)
 + (instancetype)initHUD{
     return [[self alloc] initWithFrame:[[[UIApplication sharedApplication] delegate] window].bounds];
 }
@@ -104,26 +103,6 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
     return theHUD;
 }
 
-/*
-#pragma mark - Public
-+ (id)currentWindow{
-    NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
-    for (UIWindow *window in frontToBackWindows) {
-        BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
-        BOOL windowIsVisible = !window.hidden && window.alpha > 0;
-        
-#warning UIWindowLevelNormal待定
-        BOOL windowLevelSupported = (window.windowLevel >= UIWindowLevelNormal && window.windowLevel <= UIWindowLevelNormal);
-        
-        if(windowOnMainScreen && windowIsVisible && windowLevelSupported) {
-            return window;
-            break;
-        }
-    }
-    return nil;
-}
-*/
- 
 #pragma mark - Instance Methods
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -396,11 +375,37 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
 
 #pragma mark - Show/Hide methods(singleton)
 /*
- *显示加载动画和提示文字，一直显示
+ *显示提示文字以默认时间
  */
-+ (void)showLoadingIndefinitelyWithStatus:(NSString *)status{
++ (void)showStatus:(NSString *)status{
+    if (!status) {
+        return;
+    }
     [XYProgressHUD sharedView].statusLabel.text = status;
-    [[XYProgressHUD sharedView] showWithDuration:XYProgressHUDUndefinedDuration];
+    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleStatus;    
+    NSTimeInterval duration = [XYProgressHUD sharedView].minimumDismissTimeInterval;
+    [[XYProgressHUD sharedView] showWithDuration:duration];
+}
+
+/*
+ *显示提示文字以一定时间
+ */
++ (void)showStatus:(NSString *)status duration:(NSTimeInterval)duration{
+    if (!status) {
+        return;
+    }
+    [XYProgressHUD sharedView].statusLabel.text = status;
+    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleStatus;
+    [[XYProgressHUD sharedView] showWithDuration:duration];
+}
+
+/*
+ *显示加载动画以一定时间
+ */
++ (void)showLoadingWithDuration:(NSTimeInterval)duration{
+    [XYProgressHUD sharedView].statusLabel.text = @"";
+    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleLoading;
+    [[XYProgressHUD sharedView] showWithDuration:duration];
 }
 
 /*
@@ -408,23 +413,27 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
  */
 + (void)showLoadingWithDuration:(NSTimeInterval)duration status:(NSString *)status{
     [XYProgressHUD sharedView].statusLabel.text = status;
+    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleDefault;
     [[XYProgressHUD sharedView] showWithDuration:duration];
 }
+
 
 /*
  *显示加载动画，一直显示
  */
 + (void)showLoadingIndefinitely{
+    [XYProgressHUD sharedView].statusLabel.text = @"";
     [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleLoading;
     [[XYProgressHUD sharedView] showWithDuration:XYProgressHUDUndefinedDuration];
 }
 
 /*
- *显示加载动画以一定时间
+ *显示加载动画和提示文字，一直显示
  */
-+ (void)showLoadingWithDuration:(NSTimeInterval)duration{
-    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleLoading;
-    [[XYProgressHUD sharedView] showWithDuration:duration];
++ (void)showLoadingIndefinitelyWithStatus:(NSString *)status{
+    [XYProgressHUD sharedView].statusLabel.text = status;
+    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleDefault;
+    [[XYProgressHUD sharedView] showWithDuration:XYProgressHUDUndefinedDuration];
 }
 
 /*
@@ -442,40 +451,43 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
 }
 
 /*
+ *隐藏加载动画以一定时间，并带回调函数
+ */
++ (void)dismissLoadingWithDelay:(NSTimeInterval)delay completion:(XYProgressHUDDismissCompletion)completion{
+    [[XYProgressHUD sharedView] dismissWithDelay:delay completion:completion];
+}
+
+#pragma mark - Show/Hide methods(not singleton)
+/*
  *显示提示文字以默认时间
  */
-+ (void)showStatus:(NSString *)status{
+- (void)fifo_showStatus:(NSString *)status{
     if (!status) {
         return;
     }
-    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleStatus;
-    [XYProgressHUD sharedView].statusLabel.text = status;
-    NSTimeInterval duration = [XYProgressHUD sharedView].minimumDismissTimeInterval;
-    [[XYProgressHUD sharedView] showWithDuration:duration];
+    self.defaultContentStyle = XYProgressHUDContentStyleStatus;
+    self.statusLabel.text = status;
+    NSTimeInterval duration = self.minimumDismissTimeInterval;
+    [self showByFIFOWithDuration:duration];
 }
 
 /*
  *显示提示文字以一定时间
  */
-+ (void)showStatus:(NSString *)status duration:(NSTimeInterval)duration{
+- (void)fifo_showStatus:(NSString *)status duration:(NSTimeInterval)duration{
     if (!status) {
         return;
     }
-    [XYProgressHUD sharedView].defaultContentStyle = XYProgressHUDContentStyleStatus;
-    [XYProgressHUD sharedView].statusLabel.text = status;    
-    [[XYProgressHUD sharedView] showWithDuration:duration];
+    self.defaultContentStyle = XYProgressHUDContentStyleStatus;
+    self.statusLabel.text = status;
+    [self showByFIFOWithDuration:duration];
 }
 
-#pragma mark - Show/Hide methods(not singleton)
 /*
- *显示加载动画和提示文字，一直显示
+ *显示加载动画以一定时间
  */
-- (void)fifo_showLoadingIndefinitelyWithStatus:(NSString *)status{
-    if (!status) {
-        return;
-    }
-    self.statusLabel.text = status;
-    NSTimeInterval duration = self.minimumDismissTimeInterval;
+- (void)fifo_showLoadingWithDuration:(NSTimeInterval)duration{
+    self.defaultContentStyle = XYProgressHUDContentStyleLoading;
     [self showByFIFOWithDuration:duration];
 }
 
@@ -490,6 +502,7 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
     [self showByFIFOWithDuration:duration];
 }
 
+
 /*
  *显示加载动画，一直显示
  */
@@ -499,12 +512,22 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
 }
 
 /*
- *显示加载动画以一定时间
+ *显示加载动画和提示文字，一直显示
  */
-- (void)fifo_showLoadingWithDuration:(NSTimeInterval)duration{
-    self.defaultContentStyle = XYProgressHUDContentStyleLoading;
+- (void)fifo_showLoadingIndefinitelyWithStatus:(NSString *)status{
+    if (!status) {
+        return;
+    }
+    self.statusLabel.text = status;
+    NSTimeInterval duration = self.minimumDismissTimeInterval;
     [self showByFIFOWithDuration:duration];
 }
+
+
+
+
+
+
 
 /*
  *隐藏加载动画
@@ -557,32 +580,9 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
 
 
 
-/*
- *显示提示文字以默认时间
- */
-- (void)fifo_showStatus:(NSString *)status{
-    if (!status) {
-        return;
-    }
-    self.defaultContentStyle = XYProgressHUDContentStyleStatus;
-    self.statusLabel.text = status;
-    NSTimeInterval duration = self.minimumDismissTimeInterval;
-    [self showByFIFOWithDuration:duration];
-}
 
-/*
- *显示提示文字以一定时间
- */
-- (void)fifo_showStatus:(NSString *)status duration:(NSTimeInterval)duration{
-    if (!status) {
-        return;
-    }
-    self.defaultContentStyle = XYProgressHUDContentStyleStatus;
-    self.statusLabel.text = status;
-    [self showByFIFOWithDuration:duration];
-}
 
-#pragma mark - Master show/dismiss methods(not singleton)
+#pragma mark - Master show methods(not singleton)
 - (void)showByFIFOWithDuration:(double)duration{
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
@@ -651,37 +651,38 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
     [[self getOperationQueue] addOperation:operation];
 }
 
-#pragma mark - Master show/dismiss methods(singleton)
+#pragma mark - Master show methods(singleton)
 - (void)showWithDuration:(double)duration{
-    __weak XYProgressHUD *weakSelf = self;
+    xy_weakify(self);
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        __strong XYProgressHUD *strongSelf = weakSelf;
-        if (strongSelf) {
-            [strongSelf updateViewHierarchy];
+        xy_strongify(self);
+        
+        if (self) {
+            [self updateViewHierarchy];
             
-            if(strongSelf.fadeOutTimer) {
-                strongSelf.activityCount = 0;
+            if(self.fadeOutTimer) {
+                self.activityCount = 0;
             }
-            strongSelf.fadeOutTimer = nil;
+            self.fadeOutTimer = nil;
             
-            if (strongSelf.defaultContentStyle == XYProgressHUDContentStyleLoading) {
-                [strongSelf.hudView addSubview:strongSelf.indefiniteAnimatedView];
-            }else if (strongSelf.defaultContentStyle == XYProgressHUDContentStyleStatus){
-                [strongSelf.hudView addSubview:strongSelf.statusLabel];
+            if (self.defaultContentStyle == XYProgressHUDContentStyleLoading) {
+                [self.hudView addSubview:self.indefiniteAnimatedView];
+            }else if (self.defaultContentStyle == XYProgressHUDContentStyleStatus){
+                [self.hudView addSubview:self.statusLabel];
             }else{//default
-                [strongSelf.hudView addSubview:strongSelf.indefiniteAnimatedView];
-                [strongSelf.hudView addSubview:strongSelf.statusLabel];
+                [self.hudView addSubview:self.indefiniteAnimatedView];
+                [self.hudView addSubview:self.statusLabel];
             }
             
             // Update the activity count
-            strongSelf.activityCount++;
+            self.activityCount++;
             
-            [strongSelf updateHUDFrame];
-            [strongSelf show];
+            [self updateHUDFrame];
+            [self show];
             
             if (duration >= 0) {
-                strongSelf.fadeOutTimer = [NSTimer timerWithTimeInterval:duration target:strongSelf selector:@selector(dismiss) userInfo:nil repeats:NO];
-                [[NSRunLoop mainRunLoop] addTimer:strongSelf.fadeOutTimer forMode:NSRunLoopCommonModes];
+                self.fadeOutTimer = [NSTimer timerWithTimeInterval:duration target:self selector:@selector(dismiss) userInfo:nil repeats:NO];
+                [[NSRunLoop mainRunLoop] addTimer:self.fadeOutTimer forMode:NSRunLoopCommonModes];
             }
         }
     }];
@@ -700,25 +701,25 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
         self.hudView.alpha = 0.0f;
         
         // Define blocks
-        __weak XYProgressHUD *weakSelf = self;
-        
+        xy_weakify(self);
         __block void (^animationsBlock)(void) = ^{
-            __strong XYProgressHUD *strongSelf = weakSelf;
-            if(strongSelf) {
+            xy_strongify(self);
+            
+            if(self) {
                 // Shrink HUD to finish pop up animation
-                strongSelf.hudView.transform = CGAffineTransformScale(strongSelf.hudView.transform, 1/1.3f, 1/1.3f);
-                strongSelf.alpha = 1.0f;
-                strongSelf.hudView.alpha = 1.0f;
+                self.hudView.transform = CGAffineTransformScale(self.hudView.transform, 1/1.3f, 1/1.3f);
+                self.alpha = 1.0f;
+                self.hudView.alpha = 1.0f;
             }
         };
         
         __block void (^completionBlock)(void) = ^{
-            __strong XYProgressHUD *strongSelf = weakSelf;
-            if(strongSelf) {
+            xy_strongify(self);
+            if(self) {
                 // Check if we really achieved to show the HUD (<=> alpha values are applied)
                 // and the change of these values has not been cancelled in between
                 // e.g. due to a dismissal
-                if(strongSelf.alpha == 1.0f && strongSelf.hudView.alpha == 1.0f){
+                if(self.alpha == 1.0f && self.hudView.alpha == 1.0f){
                     
                 }
             }
@@ -749,35 +750,38 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
     [self dismissWithDelay:0.0 completion:nil];
 }
 
+#pragma mark - Master dismiss methods(singleton / not singleton)
+
 - (void)dismissWithDelay:(NSTimeInterval)delay completion:(XYProgressHUDDismissCompletion)completion {
-    __weak XYProgressHUD *weakSelf = self;
+    xy_weakify(self);
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        __strong XYProgressHUD *strongSelf = weakSelf;
-        if(strongSelf){
+        xy_strongify(self);
+        
+        if(self){
             // Reset activity count
-            strongSelf.activityCount = 0;
+            self.activityCount = 0;
             
             // Define blocks
             __block void (^animationsBlock)(void) = ^{
-                strongSelf.hudView.transform = CGAffineTransformScale(strongSelf.hudView.transform, 1/1.3f, 1/1.3f);
-                strongSelf.alpha = 0.0f;
-                strongSelf.hudView.alpha = 0.0f;
+                self.hudView.transform = CGAffineTransformScale(self.hudView.transform, 1/1.3f, 1/1.3f);
+                self.alpha = 0.0f;
+                self.hudView.alpha = 0.0f;
             };
             
             __block void (^completionBlock)(void) = ^{
                 // Check if we really achieved to dismiss the HUD (<=> alpha values are applied)
                 // and the change of these values has not been cancelled in between
                 // e.g. due to a new show
-                if(strongSelf.alpha == 0.0f && strongSelf.hudView.alpha == 0.0f){
-                    strongSelf.hudView.transform = CGAffineTransformScale(strongSelf.hudView.transform, 1.3f, 1.3f);
+                if(self.alpha == 0.0f && self.hudView.alpha == 0.0f){
+                    self.hudView.transform = CGAffineTransformScale(self.hudView.transform, 1.3f, 1.3f);
                     
                     // Clean up view hierarchy (overlays)
-                    [strongSelf.overlayView removeFromSuperview];
-                    [strongSelf.hudView removeFromSuperview];
-                    [strongSelf removeFromSuperview];
+                    [self.overlayView removeFromSuperview];
+                    [self.hudView removeFromSuperview];
+                    [self removeFromSuperview];
                     
                     // Reset progress and cancel any running animation
-                    [strongSelf cancelIndefiniteAnimatedViewAnimation];
+                    [self cancelIndefiniteAnimatedViewAnimation];
                      
                     
                     // Tell the rootViewController to update the StatusBar appearance
@@ -791,15 +795,15 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
                         completion();
                     }
                     
-                    if (strongSelf.dismissBlock) {
-                        strongSelf.dismissBlock();
+                    if (self.dismissBlock) {
+                        self.dismissBlock();
                     }
                 }
             };
             
-            if (strongSelf.fadeOutAnimationDuration > 0) {
+            if (self.fadeOutAnimationDuration > 0) {
                 // Animate appearance
-                [UIView animateWithDuration:strongSelf.fadeOutAnimationDuration
+                [UIView animateWithDuration:self.fadeOutAnimationDuration
                                       delay:delay
                                     options:(UIViewAnimationOptions) (UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn | UIViewAnimationOptionBeginFromCurrentState)
                                  animations:^{
@@ -813,7 +817,7 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
             }
             
             // Inform iOS to redraw the view hierarchy
-            [strongSelf setNeedsDisplay];
+            [self setNeedsDisplay];
         } else if (completion) {
             // Run an (optional) completionHandler
             completion();
@@ -874,6 +878,10 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
     [self sharedView].defaultContentStyle = contentStyle;
 }
 
++ (void)setFont:(UIFont *)font{
+    [self sharedView].font = font;
+}
+
 #pragma mark - UIAppearance setters
 - (void)setMinimumDismissTimeInterval:(NSTimeInterval)minimumDismissTimeInterval {
     if (!_isInitializing) _minimumDismissTimeInterval = minimumDismissTimeInterval;
@@ -925,6 +933,10 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
 
 - (void)setDefaultContentStyle:(XYProgressHUDContentStyle)contentStyle {
     if (!_isInitializing) _defaultContentStyle = contentStyle;
+}
+
+- (void)setFont:(UIFont *)font{
+    if (!_isInitializing) _font = font;
 }
 
 #pragma mark - Event handling
@@ -991,7 +1003,7 @@ NSString * const XYProgressHUDDidTouchDownInsideNotification = @"XYProgressHUDDi
         [_overlayView addTarget:self action:@selector(overlayViewDidReceiveTouchEvent:forEvent:) forControlEvents:UIControlEventTouchDown];
     }
     
-#warning t
+//#warning t
     _overlayView.enabled = NO;
     
     // Update frame

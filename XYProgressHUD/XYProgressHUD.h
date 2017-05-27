@@ -56,62 +56,34 @@ typedef NS_ENUM(NSInteger, XYProgressHUDContentStyle){
 @property (assign, nonatomic) XYProgressHUDContentStyle defaultContentStyle UI_APPEARANCE_SELECTOR;
 // default is XYProgressHUDContentStyleDefault
 
-#pragma mark - Not singleton
+#pragma mark - Init/Getter (not singleton)
 + (instancetype)initHUD;
 
 + (instancetype)initHUDWithTag:(NSInteger)tag;
 
+/*
+ *通过tag找到自定义的HUD
+ */
 + (instancetype)getHUDWithTag:(NSInteger)tag;
-
-#pragma mark - Show /Hide methods(singleton)
-/*
- *显示加载动画和提示文字，一直显示
- */
-+ (void)showLoadingIndefinitelyWithStatus:(NSString *)status;
-
-/*
- *显示加载动画和提示文字以一定时间
- */
-+ (void)showLoadingWithDuration:(NSTimeInterval)duration status:(NSString *)status;
-
-/*
- *显示加载动画，一直显示
- */
-+ (void)showLoadingIndefinitely;
-
-/*
- *显示加载动画以一定时间
- */
-+ (void)showLoadingWithDuration:(NSTimeInterval)duration;
-
-/*
- *隐藏加载动画
- */
-+ (void)dismissLoading;
-
-/*
- *隐藏加载动画以一定时间
- */
-+ (void)dismissLoadingWithDelay:(NSTimeInterval)delay;
-
-/*
- *显示提示文字以默认时间
- */
-+ (void)showStatus:(NSString *)status;
-
-/*
- *显示提示文字以一定时间
- */
-+ (void)showStatus:(NSString *)status duration:(NSTimeInterval)duration;
 
 /*
  *非单例情况下均默认使用先进先出策略(FIFO)
  */
 #pragma mark - Show/Hide methods(not singleton)
 /*
- *显示加载动画和提示文字，一直显示
+ *显示提示文字以默认时间
  */
-- (void)fifo_showLoadingIndefinitelyWithStatus:(NSString *)status;
+- (void)fifo_showStatus:(NSString *)status;
+
+/*
+ *显示提示文字以一定时间
+ */
+- (void)fifo_showStatus:(NSString *)status duration:(NSTimeInterval)duration;
+
+/*
+ *显示加载动画以一定时间
+ */
+- (void)fifo_showLoadingWithDuration:(NSTimeInterval)duration;
 
 /*
  *显示加载动画和提示文字以一定时间
@@ -124,10 +96,9 @@ typedef NS_ENUM(NSInteger, XYProgressHUDContentStyle){
 - (void)fifo_showLoadingIndefinitely;
 
 /*
- *显示加载动画以一定时间
+ *显示加载动画和提示文字，一直显示
  */
-- (void)fifo_showLoadingWithDuration:(NSTimeInterval)duration;
-
+- (void)fifo_showLoadingIndefinitelyWithStatus:(NSString *)status;
 
 /*
  *隐藏加载动画
@@ -144,15 +115,51 @@ typedef NS_ENUM(NSInteger, XYProgressHUDContentStyle){
  */
 - (void)fifo_dismissLoadingWithDelay:(NSTimeInterval)delay completion:(XYProgressHUDDismissCompletion)completion;
 
+#pragma mark - Show /Hide methods(singleton)
 /*
  *显示提示文字以默认时间
  */
-- (void)fifo_showStatus:(NSString *)status;
++ (void)showStatus:(NSString *)status;
 
 /*
  *显示提示文字以一定时间
  */
-- (void)fifo_showStatus:(NSString *)status duration:(NSTimeInterval)duration;
++ (void)showStatus:(NSString *)status duration:(NSTimeInterval)duration;
+
+/*
+ *显示加载动画以一定时间
+ */
++ (void)showLoadingWithDuration:(NSTimeInterval)duration;
+
+/*
+ *显示加载动画和提示文字以一定时间
+ */
++ (void)showLoadingWithDuration:(NSTimeInterval)duration status:(NSString *)status;
+
+/*
+ *显示加载动画，一直显示
+ */
++ (void)showLoadingIndefinitely;
+
+/*
+ *显示加载动画和提示文字，一直显示
+ */
++ (void)showLoadingIndefinitelyWithStatus:(NSString *)status;
+
+/*
+ *隐藏加载动画
+ */
++ (void)dismissLoading;
+
+/*
+ *隐藏加载动画以一定时间
+ */
++ (void)dismissLoadingWithDelay:(NSTimeInterval)delay;
+
+/*
+ *隐藏加载动画以一定时间，并带回调函数
+ */
++ (void)dismissLoadingWithDelay:(NSTimeInterval)delay completion:(XYProgressHUDDismissCompletion)completion;
 
 #pragma mark - Customized(singleton)
 + (void)setMinimumDismissTimeInterval:(NSTimeInterval)interval;
@@ -180,5 +187,7 @@ typedef NS_ENUM(NSInteger, XYProgressHUDContentStyle){
 + (void)setDefaultStyle:(XYProgressHUDStyle)style;
 
 + (void)setDefaultContentStyle:(XYProgressHUDContentStyle)contentStyle;
+
++ (void)setFont:(UIFont *)font;
 
 @end
