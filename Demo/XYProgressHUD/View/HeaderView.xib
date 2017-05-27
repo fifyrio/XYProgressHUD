@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="HeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDc-6q-EBg">
+                    <rect key="frame" x="15" y="4" width="345" height="32"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X9-6h-kBC">
+                    <rect key="frame" x="15" y="0.0" width="345" height="1"/>
+                    <color key="backgroundColor" red="0.84871039396740611" green="0.84871039396740611" blue="0.84871039396740611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Rx8-8o-fYa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="UDc-6q-EBg" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="4" id="9dq-pd-eo5"/>
+                <constraint firstItem="UDc-6q-EBg" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="15" id="AA4-5I-q7r"/>
+                <constraint firstAttribute="bottom" secondItem="UDc-6q-EBg" secondAttribute="bottom" constant="4" id="QiC-XY-6o6"/>
+                <constraint firstAttribute="trailing" secondItem="UDc-6q-EBg" secondAttribute="trailing" constant="15" id="Tho-3I-CUO"/>
+                <constraint firstItem="5X9-6h-kBC" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="15" id="eBO-aD-UxB"/>
+                <constraint firstItem="5X9-6h-kBC" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="fGc-5A-Dpf"/>
+                <constraint firstAttribute="trailing" secondItem="5X9-6h-kBC" secondAttribute="trailing" constant="15" id="tWd-hR-cck"/>
+            </constraints>
+            <connections>
+                <outlet property="lineHeight" destination="Rx8-8o-fYa" id="qIa-3P-EeS"/>
+                <outlet property="titleLabel" destination="UDc-6q-EBg" id="nXg-OI-trS"/>
+            </connections>
+            <point key="canvasLocation" x="151" y="-34"/>
+        </collectionReusableView>
+    </objects>
+</document>
