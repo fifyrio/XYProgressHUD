@@ -167,8 +167,9 @@ XYProgressHUD *hud_2 = [XYProgressHUD initHUD];
 
 
 ##后期会做
-* XYProgressHUD若没有设置tag自动设置
+* XYProgressHUD加一个configuration的属性专门来设置字体颜色，大小等属性
 * 增加overlayview样式
+
 
 ## Release Versions
 * v1.0
