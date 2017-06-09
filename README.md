@@ -168,6 +168,21 @@ XYProgressHUD *hud_2 = [XYProgressHUD initHUD];
 
 ##后期会做
 * XYProgressHUD加一个configuration的属性专门来设置字体颜色，大小等属性
+
+```
+//1.默认配置
+XYProgressHUDConfiguration *config = [XYProgressHUDConfiguration defaultConfiguration];
+
+//2.自定义配置
+XYProgressHUDConfiguration *config = [XYProgressHUDConfiguration configuration];
+[config setDefaultStyle:XYProgressHUDStyleCustom];
+[config setFont:[UIFont systemFontOfSize:11]];//字体大小
+[config setForegroundColor:[UIColor blueColor]];
+
+[[XYProgressHUD HUDWithConfig:config] fifo_showLoadingWithDuration:duration]
+
+```
+
 * 增加overlayview样式
 
 
