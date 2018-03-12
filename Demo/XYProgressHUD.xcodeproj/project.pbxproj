@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC48994D20567ED200BE5002 /* XYProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC48994620567ED200BE5002 /* XYProgressHUD.bundle */; };
+		CC48994E20567ED200BE5002 /* UIView+XYHUDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC48994820567ED200BE5002 /* UIView+XYHUDOperation.m */; };
+		CC48994F20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC48994A20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m */; };
+		CC48995020567ED200BE5002 /* XYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC48994C20567ED200BE5002 /* XYProgressHUD.m */; };
 		CCA647111ECE915500B8F602 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA647101ECE915500B8F602 /* main.m */; };
 		CCA647141ECE915500B8F602 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA647131ECE915500B8F602 /* AppDelegate.m */; };
 		CCA6471C1ECE915500B8F602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA6471B1ECE915500B8F602 /* Assets.xcassets */; };
 		CCA6471F1ECE915500B8F602 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA6471D1ECE915500B8F602 /* LaunchScreen.storyboard */; };
-		CCA6472F1ECE920000B8F602 /* XYProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCA647281ECE920000B8F602 /* XYProgressHUD.bundle */; };
-		CCA647301ECE920000B8F602 /* UIView+XYHUDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA6472A1ECE920000B8F602 /* UIView+XYHUDOperation.m */; };
-		CCA647311ECE920000B8F602 /* XYIndefiniteAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA6472C1ECE920000B8F602 /* XYIndefiniteAnimatedImageView.m */; };
-		CCA647321ECE920000B8F602 /* XYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA6472E1ECE920000B8F602 /* XYProgressHUD.m */; };
 		CCA6473E1ECE98B700B8F602 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA6473A1ECE98B700B8F602 /* ViewController.m */; };
 		CCA6473F1ECE98B700B8F602 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCA6473B1ECE98B700B8F602 /* ViewController.xib */; };
 		CCA647431ECE9ABA00B8F602 /* ViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA647411ECE9ABA00B8F602 /* ViewCell.m */; };
@@ -25,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC48994620567ED200BE5002 /* XYProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XYProgressHUD.bundle; sourceTree = "<group>"; };
+		CC48994720567ED200BE5002 /* UIView+XYHUDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XYHUDOperation.h"; sourceTree = "<group>"; };
+		CC48994820567ED200BE5002 /* UIView+XYHUDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XYHUDOperation.m"; sourceTree = "<group>"; };
+		CC48994920567ED200BE5002 /* XYIndefiniteAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYIndefiniteAnimatedImageView.h; sourceTree = "<group>"; };
+		CC48994A20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYIndefiniteAnimatedImageView.m; sourceTree = "<group>"; };
+		CC48994B20567ED200BE5002 /* XYProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProgressHUD.h; sourceTree = "<group>"; };
+		CC48994C20567ED200BE5002 /* XYProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUD.m; sourceTree = "<group>"; };
 		CCA6470C1ECE915500B8F602 /* XYProgressHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYProgressHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA647101ECE915500B8F602 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CCA647121ECE915500B8F602 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,13 +39,6 @@
 		CCA6471B1ECE915500B8F602 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCA6471E1ECE915500B8F602 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCA647201ECE915500B8F602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCA647281ECE920000B8F602 /* XYProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XYProgressHUD.bundle; sourceTree = "<group>"; };
-		CCA647291ECE920000B8F602 /* UIView+XYHUDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XYHUDOperation.h"; sourceTree = "<group>"; };
-		CCA6472A1ECE920000B8F602 /* UIView+XYHUDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XYHUDOperation.m"; sourceTree = "<group>"; };
-		CCA6472B1ECE920000B8F602 /* XYIndefiniteAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYIndefiniteAnimatedImageView.h; sourceTree = "<group>"; };
-		CCA6472C1ECE920000B8F602 /* XYIndefiniteAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYIndefiniteAnimatedImageView.m; sourceTree = "<group>"; };
-		CCA6472D1ECE920000B8F602 /* XYProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProgressHUD.h; sourceTree = "<group>"; };
-		CCA6472E1ECE920000B8F602 /* XYProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUD.m; sourceTree = "<group>"; };
 		CCA647391ECE98B700B8F602 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CCA6473A1ECE98B700B8F602 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CCA6473B1ECE98B700B8F602 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -65,6 +65,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC48994420567ED200BE5002 /* XYProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CC48994520567ED200BE5002 /* Resources */,
+				CC48994720567ED200BE5002 /* UIView+XYHUDOperation.h */,
+				CC48994820567ED200BE5002 /* UIView+XYHUDOperation.m */,
+				CC48994920567ED200BE5002 /* XYIndefiniteAnimatedImageView.h */,
+				CC48994A20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m */,
+				CC48994B20567ED200BE5002 /* XYProgressHUD.h */,
+				CC48994C20567ED200BE5002 /* XYProgressHUD.m */,
+			);
+			name = XYProgressHUD;
+			path = ../../XYProgressHUD;
+			sourceTree = "<group>";
+		};
+		CC48994520567ED200BE5002 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CC48994620567ED200BE5002 /* XYProgressHUD.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CCA647031ECE915500B8F602 = {
 			isa = PBXGroup;
 			children = (
@@ -84,11 +107,10 @@
 		CCA6470E1ECE915500B8F602 /* XYProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				CCA647261ECE920000B8F602 /* XYProgressHUD */,
+				CC48994420567ED200BE5002 /* XYProgressHUD */,
 				CCA647121ECE915500B8F602 /* AppDelegate.h */,
 				CCA647131ECE915500B8F602 /* AppDelegate.m */,
 				CCA647381ECE98B700B8F602 /* Controller */,
-				CCA6473C1ECE98B700B8F602 /* Model */,
 				CCA6473D1ECE98B700B8F602 /* View */,
 				CCA6471B1ECE915500B8F602 /* Assets.xcassets */,
 				CCA6471D1ECE915500B8F602 /* LaunchScreen.storyboard */,
@@ -110,28 +132,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CCA647261ECE920000B8F602 /* XYProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				CCA647271ECE920000B8F602 /* Resources */,
-				CCA6472D1ECE920000B8F602 /* XYProgressHUD.h */,
-				CCA6472E1ECE920000B8F602 /* XYProgressHUD.m */,
-				CCA647291ECE920000B8F602 /* UIView+XYHUDOperation.h */,
-				CCA6472A1ECE920000B8F602 /* UIView+XYHUDOperation.m */,
-				CCA6472B1ECE920000B8F602 /* XYIndefiniteAnimatedImageView.h */,
-				CCA6472C1ECE920000B8F602 /* XYIndefiniteAnimatedImageView.m */,
-			);
-			path = XYProgressHUD;
-			sourceTree = "<group>";
-		};
-		CCA647271ECE920000B8F602 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CCA647281ECE920000B8F602 /* XYProgressHUD.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		CCA647381ECE98B700B8F602 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,13 +140,6 @@
 				CCA6473B1ECE98B700B8F602 /* ViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		CCA6473C1ECE98B700B8F602 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		CCA6473D1ECE98B700B8F602 /* View */ = {
@@ -193,7 +186,7 @@
 				TargetAttributes = {
 					CCA6470B1ECE915500B8F602 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 3SE6KJCLPR;
+						DevelopmentTeam = 266655SB8D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -224,8 +217,8 @@
 				CCA6471F1ECE915500B8F602 /* LaunchScreen.storyboard in Resources */,
 				CCA6471C1ECE915500B8F602 /* Assets.xcassets in Resources */,
 				CCA6473F1ECE98B700B8F602 /* ViewController.xib in Resources */,
+				CC48994D20567ED200BE5002 /* XYProgressHUD.bundle in Resources */,
 				CCA647491ECE9B3E00B8F602 /* HeaderView.xib in Resources */,
-				CCA6472F1ECE920000B8F602 /* XYProgressHUD.bundle in Resources */,
 				CCA647441ECE9ABA00B8F602 /* ViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,14 +231,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA6473E1ECE98B700B8F602 /* ViewController.m in Sources */,
-				CCA647321ECE920000B8F602 /* XYProgressHUD.m in Sources */,
-				CCA647311ECE920000B8F602 /* XYIndefiniteAnimatedImageView.m in Sources */,
+				CC48995020567ED200BE5002 /* XYProgressHUD.m in Sources */,
 				CCA647481ECE9B3E00B8F602 /* HeaderView.m in Sources */,
-				CCA647301ECE920000B8F602 /* UIView+XYHUDOperation.m in Sources */,
 				CCA6474E1ECEA33400B8F602 /* UIColor+HexColor.m in Sources */,
+				CC48994F20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m in Sources */,
 				CCA647431ECE9ABA00B8F602 /* ViewCell.m in Sources */,
 				CCA647141ECE915500B8F602 /* AppDelegate.m in Sources */,
 				CCA647111ECE915500B8F602 /* main.m in Sources */,
+				CC48994E20567ED200BE5002 /* UIView+XYHUDOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +350,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3SE6KJCLPR;
+				DEVELOPMENT_TEAM = 266655SB8D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XYProgressHUD/XYProgressHUD-Prefix.pch";
 				INFOPLIST_FILE = XYProgressHUD/Info.plist;
@@ -371,7 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3SE6KJCLPR;
+				DEVELOPMENT_TEAM = 266655SB8D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XYProgressHUD/XYProgressHUD-Prefix.pch";
 				INFOPLIST_FILE = XYProgressHUD/Info.plist;
