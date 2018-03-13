@@ -11,6 +11,8 @@
 #import "HeaderView.h"
 #import "XYProgressHUD.h"
 
+#import "XYProgressHUDManager.h"
+
 static NSString * const kViewCell = @"ViewCell";
 
 static NSString * const kHeaderView = @"HeaderView";
@@ -342,6 +344,19 @@ static NSTimeInterval const kDuration = 3.0;
         return CGSizeMake(ScreenW, 44);
     }
     
+}
+- (IBAction)onclickRun:(id)sender {
+//    dispatch_async([XYProgressHUDManager setterQueue], ^{
+//        NSLog(@"1");
+//        sleep(1);
+//    });
+//    
+//    dispatch_async([XYProgressHUDManager setterQueue], ^{
+//        NSLog(@"2");
+//        sleep(1);
+//    });
+    [[XYProgressHUDManager manager] showHUD];
+    [[XYProgressHUDManager manager] showHUD];
 }
 
 @end
