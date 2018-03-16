@@ -10,8 +10,9 @@
 #import "ViewCell.h"
 #import "HeaderView.h"
 #import "XYProgressHUD.h"
-
 #import "XYProgressHUDManager.h"
+#import "_XYProgressHUD.h"
+#import "UIImage+XYBlur.h"
 
 static NSString * const kViewCell = @"ViewCell";
 
@@ -355,8 +356,25 @@ static NSTimeInterval const kDuration = 3.0;
 //        NSLog(@"2");
 //        sleep(1);
 //    });
-    [[XYProgressHUDManager manager] showHUD];
-    [[XYProgressHUDManager manager] showHUD];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_XYProgressHUD showStatus:@"xxoo1" duration:2];
+    });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_XYProgressHUD showStatus:@"xxoo2" duration:2];
+    });
+    
+    /*
+    UIImage *image = [UIImage imageNamed:@"ss.jpg"];
+    UIImage *blurImage = [image xy_blurryImage:image withBlurLevel:0.8];
+    
+    
+    UIGraphicsBeginImageContext(CGSizeMake(100, 100)); //currentView 当前的view
+    [self.navigationController.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSLog(@"");
+     */
 }
 
 @end

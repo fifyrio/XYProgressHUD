@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC0CBF4E205685330041FEF9 /* XYProgressHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CBF4D205685330041FEF9 /* XYProgressHUDManager.m */; };
-		CC0CBF51205689BB0041FEF9 /* XYProgressHUDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CBF50205689BB0041FEF9 /* XYProgressHUDOperation.m */; };
-		CC0CBF54205691F90041FEF9 /* _XYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0CBF53205691F90041FEF9 /* _XYProgressHUD.m */; };
+		CC0A5FA7205B9E6500D223F0 /* _XYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5FA2205B9E6500D223F0 /* _XYProgressHUD.m */; };
+		CC0A5FA8205B9E6500D223F0 /* XYProgressHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5FA4205B9E6500D223F0 /* XYProgressHUDManager.m */; };
+		CC0A5FA9205B9E6500D223F0 /* XYProgressHUDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5FA6205B9E6500D223F0 /* XYProgressHUDOperation.m */; };
+		CC0A5FAC205B9E7600D223F0 /* UIImage+XYBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5FAB205B9E7600D223F0 /* UIImage+XYBlur.m */; };
+		CC0A5FAF205BBF3400D223F0 /* XYProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0A5FAE205BBF3400D223F0 /* XYProgressHUDView.m */; };
 		CC48994D20567ED200BE5002 /* XYProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC48994620567ED200BE5002 /* XYProgressHUD.bundle */; };
 		CC48994E20567ED200BE5002 /* UIView+XYHUDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC48994820567ED200BE5002 /* UIView+XYHUDOperation.m */; };
 		CC48994F20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC48994A20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m */; };
@@ -28,12 +30,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC0CBF4C205685330041FEF9 /* XYProgressHUDManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYProgressHUDManager.h; sourceTree = "<group>"; };
-		CC0CBF4D205685330041FEF9 /* XYProgressHUDManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUDManager.m; sourceTree = "<group>"; };
-		CC0CBF4F205689BB0041FEF9 /* XYProgressHUDOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYProgressHUDOperation.h; sourceTree = "<group>"; };
-		CC0CBF50205689BB0041FEF9 /* XYProgressHUDOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUDOperation.m; sourceTree = "<group>"; };
-		CC0CBF52205691F90041FEF9 /* _XYProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _XYProgressHUD.h; sourceTree = "<group>"; };
-		CC0CBF53205691F90041FEF9 /* _XYProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _XYProgressHUD.m; sourceTree = "<group>"; };
+		CC0A5FA1205B9E6500D223F0 /* _XYProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _XYProgressHUD.h; sourceTree = "<group>"; };
+		CC0A5FA2205B9E6500D223F0 /* _XYProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _XYProgressHUD.m; sourceTree = "<group>"; };
+		CC0A5FA3205B9E6500D223F0 /* XYProgressHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProgressHUDManager.h; sourceTree = "<group>"; };
+		CC0A5FA4205B9E6500D223F0 /* XYProgressHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUDManager.m; sourceTree = "<group>"; };
+		CC0A5FA5205B9E6500D223F0 /* XYProgressHUDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProgressHUDOperation.h; sourceTree = "<group>"; };
+		CC0A5FA6205B9E6500D223F0 /* XYProgressHUDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUDOperation.m; sourceTree = "<group>"; };
+		CC0A5FAA205B9E7600D223F0 /* UIImage+XYBlur.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+XYBlur.h"; sourceTree = "<group>"; };
+		CC0A5FAB205B9E7600D223F0 /* UIImage+XYBlur.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XYBlur.m"; sourceTree = "<group>"; };
+		CC0A5FAD205BBF3400D223F0 /* XYProgressHUDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYProgressHUDView.h; sourceTree = "<group>"; };
+		CC0A5FAE205BBF3400D223F0 /* XYProgressHUDView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUDView.m; sourceTree = "<group>"; };
 		CC48994620567ED200BE5002 /* XYProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XYProgressHUD.bundle; sourceTree = "<group>"; };
 		CC48994720567ED200BE5002 /* UIView+XYHUDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XYHUDOperation.h"; sourceTree = "<group>"; };
 		CC48994820567ED200BE5002 /* UIView+XYHUDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XYHUDOperation.m"; sourceTree = "<group>"; };
@@ -74,22 +80,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC0A5F9F205B9E6400D223F0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A5FAA205B9E7600D223F0 /* UIImage+XYBlur.h */,
+				CC0A5FAB205B9E7600D223F0 /* UIImage+XYBlur.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		CC0A5FA0205B9E6500D223F0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A5FA1205B9E6500D223F0 /* _XYProgressHUD.h */,
+				CC0A5FA2205B9E6500D223F0 /* _XYProgressHUD.m */,
+				CC0A5FA3205B9E6500D223F0 /* XYProgressHUDManager.h */,
+				CC0A5FA4205B9E6500D223F0 /* XYProgressHUDManager.m */,
+				CC0A5FA5205B9E6500D223F0 /* XYProgressHUDOperation.h */,
+				CC0A5FA6205B9E6500D223F0 /* XYProgressHUDOperation.m */,
+				CC0A5FAD205BBF3400D223F0 /* XYProgressHUDView.h */,
+				CC0A5FAE205BBF3400D223F0 /* XYProgressHUDView.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		CC48994420567ED200BE5002 /* XYProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A5F9F205B9E6400D223F0 /* Category */,
+				CC0A5FA0205B9E6500D223F0 /* Core */,
 				CC48994520567ED200BE5002 /* Resources */,
 				CC48994720567ED200BE5002 /* UIView+XYHUDOperation.h */,
 				CC48994820567ED200BE5002 /* UIView+XYHUDOperation.m */,
 				CC48994920567ED200BE5002 /* XYIndefiniteAnimatedImageView.h */,
 				CC48994A20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m */,
-				CC0CBF4C205685330041FEF9 /* XYProgressHUDManager.h */,
-				CC0CBF4D205685330041FEF9 /* XYProgressHUDManager.m */,
-				CC0CBF4F205689BB0041FEF9 /* XYProgressHUDOperation.h */,
-				CC0CBF50205689BB0041FEF9 /* XYProgressHUDOperation.m */,
 				CC48994B20567ED200BE5002 /* XYProgressHUD.h */,
 				CC48994C20567ED200BE5002 /* XYProgressHUD.m */,
-				CC0CBF52205691F90041FEF9 /* _XYProgressHUD.h */,
-				CC0CBF53205691F90041FEF9 /* _XYProgressHUD.m */,
 			);
 			name = XYProgressHUD;
 			path = ../../XYProgressHUD;
@@ -246,14 +272,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA6473E1ECE98B700B8F602 /* ViewController.m in Sources */,
-				CC0CBF54205691F90041FEF9 /* _XYProgressHUD.m in Sources */,
 				CC48995020567ED200BE5002 /* XYProgressHUD.m in Sources */,
+				CC0A5FA8205B9E6500D223F0 /* XYProgressHUDManager.m in Sources */,
 				CCA647481ECE9B3E00B8F602 /* HeaderView.m in Sources */,
+				CC0A5FAC205B9E7600D223F0 /* UIImage+XYBlur.m in Sources */,
 				CCA6474E1ECEA33400B8F602 /* UIColor+HexColor.m in Sources */,
+				CC0A5FAF205BBF3400D223F0 /* XYProgressHUDView.m in Sources */,
 				CC48994F20567ED200BE5002 /* XYIndefiniteAnimatedImageView.m in Sources */,
-				CC0CBF4E205685330041FEF9 /* XYProgressHUDManager.m in Sources */,
+				CC0A5FA7205B9E6500D223F0 /* _XYProgressHUD.m in Sources */,
+				CC0A5FA9205B9E6500D223F0 /* XYProgressHUDOperation.m in Sources */,
 				CCA647431ECE9ABA00B8F602 /* ViewCell.m in Sources */,
-				CC0CBF51205689BB0041FEF9 /* XYProgressHUDOperation.m in Sources */,
 				CCA647141ECE915500B8F602 /* AppDelegate.m in Sources */,
 				CCA647111ECE915500B8F602 /* main.m in Sources */,
 				CC48994E20567ED200BE5002 /* UIView+XYHUDOperation.m in Sources */,
@@ -372,6 +400,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XYProgressHUD/XYProgressHUD-Prefix.pch";
 				INFOPLIST_FILE = XYProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.will.tableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -386,6 +415,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XYProgressHUD/XYProgressHUD-Prefix.pch";
 				INFOPLIST_FILE = XYProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.will.tableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";

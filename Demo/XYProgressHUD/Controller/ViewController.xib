@@ -59,9 +59,12 @@
                         <constraint firstItem="3VQ-BD-zOg" firstAttribute="top" secondItem="yNN-P7-Ixd" secondAttribute="bottom" constant="11" id="zyx-Ch-HGu"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ss" translatesAutoresizingMaskIntoConstraints="NO" id="5p5-35-46w">
+                    <rect key="frame" x="0.0" y="104" width="375" height="563"/>
+                </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5Bx-eC-Wub">
                     <rect key="frame" x="0.0" y="104" width="375" height="563"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="SUu-Ft-1dR">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -79,7 +82,9 @@
                         <constraint firstAttribute="height" constant="30" id="aPY-Q6-db5"/>
                         <constraint firstAttribute="width" constant="120" id="ytq-ce-0Mo"/>
                     </constraints>
-                    <state key="normal" title="Test"/>
+                    <state key="normal" title="Test">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="onclickRun:" destination="-1" eventType="touchUpInside" id="hAm-Wt-6pG"/>
                     </connections>
@@ -91,14 +96,21 @@
                 <constraint firstItem="YVp-uA-PXK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IHI-nL-jri"/>
                 <constraint firstItem="5Bx-eC-Wub" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SBw-eU-6dI"/>
                 <constraint firstAttribute="bottom" secondItem="5Bx-eC-Wub" secondAttribute="bottom" id="Vjd-cW-XmE"/>
+                <constraint firstItem="5p5-35-46w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="e7R-Ir-bFq"/>
                 <constraint firstAttribute="bottom" secondItem="sEv-VY-hVg" secondAttribute="bottom" constant="106" id="g2G-44-fFH"/>
                 <constraint firstItem="5Bx-eC-Wub" firstAttribute="top" secondItem="YVp-uA-PXK" secondAttribute="bottom" id="gaw-TE-eFO"/>
                 <constraint firstAttribute="trailing" secondItem="YVp-uA-PXK" secondAttribute="trailing" id="jQE-Gm-pC0"/>
+                <constraint firstAttribute="bottom" secondItem="5p5-35-46w" secondAttribute="bottom" id="jVd-IW-amv"/>
+                <constraint firstItem="5p5-35-46w" firstAttribute="top" secondItem="YVp-uA-PXK" secondAttribute="bottom" id="lE0-ej-9lj"/>
                 <constraint firstAttribute="trailing" secondItem="5Bx-eC-Wub" secondAttribute="trailing" id="sq4-Kk-c3G"/>
                 <constraint firstItem="sEv-VY-hVg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="teL-dA-QpZ"/>
                 <constraint firstItem="YVp-uA-PXK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uCJ-lU-cDs"/>
+                <constraint firstAttribute="trailing" secondItem="5p5-35-46w" secondAttribute="trailing" id="wIe-42-Rh3"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ss" width="1920" height="1200"/>
+    </resources>
 </document>

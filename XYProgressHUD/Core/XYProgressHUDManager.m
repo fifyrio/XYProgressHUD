@@ -42,14 +42,24 @@
 }
 
 #pragma mark - Public
-- (void)showHUD{
-    XYProgressHUDOperation *operation = [XYProgressHUDOperation new];
-    [_taskMap setObject:operation forKey:operation.taskID];
+- (void)showHUDWithSessionID:(NSString *)sessionID status:(NSString *)status isUsingLoading:(BOOL)isUsingLoading duration:(NSTimeInterval)duration{
+    if (!sessionID || !sessionID.length) {
+        sessionID = [[NSUUID UUID] UUIDString];
+    }
+    
+    XYProgressHUDOperation *operation = [[XYProgressHUDOperation alloc] initWithSessionID:sessionID];
+    operation.status = status;
+    operation.isUsingLoading = isUsingLoading;
+    operation.duration = duration;
+    
+    [_taskMap setObject:operation forKey:operation.sessionID];
     if (operation) {
         dispatch_async(_queue, ^{
             [operation start];
         });
     }
 }
+
+
 
 @end
